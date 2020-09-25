@@ -1,42 +1,26 @@
 import React from 'react'
-import Courses from './components/scenes/Courses'
-import Edit from './components/scenes/Edit'
-
-
-
 import {
   BrowserRouter as Router,
-  Switch, 
+  Switch,
   Route
 } from "react-router-dom"
-
-
-
-
-//import Courses from './components/courses'
-//import Welcome from './components/common/Welcome'
+import Courses from './components/scenes/Courses'
 import Home from './components/scenes/Home'
-
-
-import './App.css'
-
-
-
+import Edit from './components/scenes/Edit'
+import Header from './components/common/Header'
+import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
     <div className="App">
-    <Router>
-      <Switch>
-         
-        <Route exact path="/courses" component={Courses} />
-        <Route exact path="/courses/:id" component={Courses} />
-        <Route exact path="/edit" component={Edit}
-/>      <Route exact path="/home" component={Home}/>
-       
-      </Switch>
-
-    </Router> 
-     
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/courses" component={Courses} />
+          <Route path="/courses/:id" component={Courses} />
+          <Route exact path="/edit" component={Edit} />
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </Router>
     </div>
   )
 }
